@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <!-- CDN are Content Delivery Networks -->
+    <!-- These are the websites where React has been hosted and we are pulling the code into our code. -->
+
+    <!-- We use tags to get these into our code -->
+    <!-- Find the tags at the link -->
+    <!-- https://legacy.reactjs.org/docs/cdn-links.html -->
+
+    <!-- The following are the tags -->
+    <!-- react.development.js is the core of react -->
+    <script 
+        crossorigin 
+        src="https://unpkg.com/react@18/umd/react.development.js">
+    </script>
+
+    <!-- react-dom.development.js is the library used for DOM operations
+         it is required to modify the DOM 
+    -->
+    <script 
+        crossorigin 
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+    </script>
+
+    <!-- There are 2 types of Developer 
+         1. Building the React Library
+         2. Building the React Applications.
+    -->
+
+    <div id="root"></div>
+    <script>
+        /* React code creating element using React Library */
+        const heading = React.createElement("h1", {}, "Hello World From React!");
+
+        /* Now we have to modify the DOM using the React DOM Library */
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        
+        /* Place the heading in the root */
+        root.render(heading);
+        
+    </script>
+</body>
+
+</html>

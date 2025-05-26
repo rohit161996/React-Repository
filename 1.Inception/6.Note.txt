@@ -1,0 +1,5 @@
+React is a library, but what does this actually means:-
+
+1. In the projects we have applied the react code to the div and other code is working fine.
+2. It can be applied to the small page of the Project as well.
+3. Using the CDNs we can inject the React into our app.
