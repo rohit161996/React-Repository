@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "name": "food-delivery-app",
+  "version": "1.0.0",
+  "description": "This is a food delivery app by Rohit Ramchandani",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohit161996/react-nmr.git"
+  },
+  "keywords": [
+    "food",
+    "delivery"
+  ],
+  "author": "Rohit Ramchandani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohit161996/react-nmr/issues"
+  },
+  "homepage": "https://github.com/rohit161996/react-nmr#readme"
+}
