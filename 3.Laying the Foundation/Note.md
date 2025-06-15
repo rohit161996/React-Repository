@@ -5,7 +5,7 @@
     "start" : "parcel index.html",
 }
 
-### Command to run the script
+## Command to run the script
 - npm run start
 - npm start
 
@@ -14,14 +14,14 @@
     "build" : "parcel build index.html",
 }
 
-### Command to run the script
+## Command to run the script
 - npm run build
 - npm build
 
 We can see the package.json to see the scripts to run the new project.
 
 
-### Need of JSX
+## Need of JSX
 - To avoid creating the element like the one given below, JSX is used.
 
 const heading = React.createElement(
@@ -29,11 +29,11 @@ const heading = React.createElement(
     { id: "heading" }, 
     "Namaste React😁");
 
-### Difference b/w React and JSX
+## Difference b/w React and JSX
 - React can be written without JSX, but JSX makes React code writing easier.
 - JSX is not a part of React.
 
-### Need of JSX
+## Need of JSX
 JSX is a convension where we merge the Javascript and the HTML.
 JSX is not HTML inside Java Script, JSX is an HTML like or XML like syntax.
 JSX makes it easier to develop the code.
@@ -52,7 +52,7 @@ const jsxHeading = <h1 id="heading">Namaste React using JSX 😍</h1>;
 
 https://babeljs.io/
 
-#### Difference between the HTML and JSX
+## Difference between the HTML and JSX
 - In JSX there is no class it is "className".
 - There is no 'single quotes'.
 - Attributes are written in the camelCase.
@@ -62,13 +62,13 @@ https://babeljs.io/
         </h1>);
 
 
-### Components in React
+## Components in React
 There are two types of components in React:
 1. Class Based Components. (Not Used)
 2. Functional Components. (New Way of Writing Code)
 
 
-### Functional Components
+## Functional Components
 - It is a function in Java Script which is returning the JSX Component 
   is a functional component.
 
@@ -101,7 +101,7 @@ root.render(<reactFunctionalComponent/>);
 It can be used inside a components as well.
 
 
-### Component Composition
+## Component Composition
 Writing the Component inside the Component is called Component Composition.
 
 - We can write function also instead of the Arrow Function, but it is necessary to return it.
@@ -114,16 +114,16 @@ const HeadingComponent = function() => {
     );
 }
 
-### Super power of JSX 
+## Super power of JSX 
 - We can write any expression of Java Script in the {}.
 - We can write a react element inside a react element as well.
 
-### Cross Site Scripting
+## Cross Site Scripting
 - If somebody wants to run a java script to someone's code it is called cross site scripting.
 - It steels cookies, sessions.
 So, the {element} will not directly run the code it will sanitize the data. It protects cross site scripting.
 
-### NOTE:
+## NOTE:
 - The functional component can also be written like:
 <Title/> or <Title></Title>
 
@@ -131,10 +131,10 @@ So, the {element} will not directly run the code it will sanitize the data. It p
 {Title()}
 
 
-### Why code is readable?
+## Why code is readable?
 Due to JSX.
 
-### Why Code is Faster?
+## Why Code is Faster?
 Due to the Bundle.
 
 

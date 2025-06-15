@@ -1,4 +1,4 @@
-### Components in Our App
+## Components in Our App
 1. Header
    1.1. Logo 
    1.2. Nav Items
@@ -44,10 +44,10 @@ const RestaurantCard = () =>{
     )
 }
 
-### How can we create the dynamic Cards?
+## How can we create the dynamic Cards?
 By using the props.
 
-### Props in React 
+## Props in React 
 - Passing a prop to a component is like passing the argument to a function.
 - These are just the attributes which are passed to the components.
 
@@ -97,7 +97,7 @@ const RestaurantCard = (props) =>{
 3. Copy the data to the program.
 
 
-##### Config Driven UI
+## Config Driven UI
 - Some offers are available in some location and some other in some other location.
 - The UI is driven by the config which is the JSON data from the backend.
 - The config means the JSON data.
@@ -132,7 +132,7 @@ csrfToken: "1ZKvnAV2wCP5-pjCLmGuAq_q_FK4scVMAjzFtJWQ"
 
 - UI is powered by the data.
 
-#### How to integrate data manually to the front end?
+## How to integrate data manually to the front end?
 - Take the data as an object in the code like const data = {}.
 - Pass the data as a prop to the functional component <Component resData={data}/>.
 - Take the data into the function as props like
@@ -140,28 +140,28 @@ csrfToken: "1ZKvnAV2wCP5-pjCLmGuAq_q_FK4scVMAjzFtJWQ"
       const {resObj} = resData;    
    }
 
-#### CDN to store images
+## CDN to store images
 Swiggy uses the CDN to store the images. So, the image source is link+"id".
 
-#### To make our code look good
+## To make our code look good
 We will use Optional Chaining.
 const { cloudinaryImageId, name, avgRating, cuisines, areaName, costForTwo } = resData?.info;
 
-#### How to loop over the components in React?
+## How to loop over the components in React?
 We will loop over the components in React by using map or for-each loop, but we will be using map.
 
-#### MAP, FILTER and REDUCE are very important.
+## MAP, FILTER and REDUCE are very important.
 
-#### Importance of Key in the map while looping.
+## Importance of Key in the map while looping.
 - React will re render all the components when one component is added, because it will be confused where to insert the component.
 - In react version 19 it will throw an error.
 
-#### Alternative to the key
+## Alternative to the key
 - We can also write the index instead of key, but the React's official website says do not use index for keys as the order of items may change.
 
 " Index as a key is an anti-pattern"
 
-#### If we do not have a key by any means then we have no other option than to use the id.
+## If we do not have a key by any means then we have no other option than to use the id.
 
-#### [Not using keys] <<<<<<<<< [Index as a key] <<<<<<<<< [Unique Id] 
+## [Not using keys] <<<<<<<<< [Index as a key] <<<<<<<<< [Unique Id] 
 

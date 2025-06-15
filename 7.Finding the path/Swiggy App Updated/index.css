@@ -1,0 +1,103 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo {
+    margin: 10px 15px;
+    width: 100px;
+}
+
+.nav-items>ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items>ul>li {
+    font-size: large;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+}
+
+.res-card {
+    height: auto;
+    width: 200px;
+    border-radius: 10px;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.res-card:hover {
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search {
+    padding: 10px;
+}
+
+.res-logo {
+    width: 200px;
+    height: 190px;
+    border-radius: 10px;
+}
+
+.res-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px 200px;
+}
+
+.res-content {
+    padding-left: 10px;
+}
+
+.res-content>p {
+    color: lightgray;
+}
+
+.filter-btn {
+    padding: 10px;
+    margin: 20px 0px;
+}
+
+.shimmer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px 200px;
+}
+
+.shimmer-card {
+    height: 300px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: lightgray(83, 85, 85);
+}
+
+.login {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topchain {
+    margin-left: 200px;
+}
+
+.Footer {
+    background-color: lightgray;
+    height: 200px;
+}
