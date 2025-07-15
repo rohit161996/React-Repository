@@ -76,7 +76,7 @@ const headingComponent = () => {
     return `<h1>This is a functional Component</h1>`;
 }
 
-const headingComponent = () => `<h1>This is a functional Component</h1>`;
+const headingComponent = () => `<h1>This is a functional Component</h1>;
 
 Both the above syntax are correct But use {} in the multiline components.
 
@@ -84,9 +84,9 @@ Both the above syntax are correct But use {} in the multiline components.
 
 const headingComponent = () => {
     return 
-    ```<div>
+    <div>
         <h1>This is a functional Component</h1>;
-    </div>```
+    </div>
 }
 
 const ReactElement = ();
@@ -107,10 +107,7 @@ Writing the Component inside the Component is called Component Composition.
 - We can write function also instead of the Arrow Function, but it is necessary to return it.
 const HeadingComponent = function() => {
     return (
-        `<div id="container">`
-            `<Title>`
-            `<h1>This is a functional Component</h1>`
-        `</div>`
+        <pre> ```html <div id="container"> <Title/> <h1>This is a functional Component</h1> </div> ``` </pre>
     );
 }
 
