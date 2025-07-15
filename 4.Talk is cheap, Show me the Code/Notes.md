@@ -1,28 +1,25 @@
 ## Components in Our App
-1. Header
-   1.1. Logo 
-   1.2. Nav Items
+1. **Header**<br>
+   1.1. Logo <br>
+   1.2. Nav Items<br><br>
 
-2. Body
-   2.1. Search
-   2.2. Restaurant  Container
-        2.2.1. Restaurant Card
+2. **Body**<br>
+   2.1. Search<br>
+   2.2. Restaurant  Container<br>
+        2.2.1. Restaurant Card<br><br>
 
-3. Footer
-   3.1. Copyright
-   3.2. Links
-   3.3. Address
-   3.4. Contact
+3. **Footer**<br>
+   3.1. Copyright<br>
+   3.2. Links<br>
+   3.3. Address<br>
+   3.4. Contact<br>
 
 Parcel does the HMR for Us -> gives the response very quickly. 
 
 ## Standard Component Format
 
 const AppLayout = () => {
-    return (
-        <div>
-        </div>
-    )
+    return (`<div></div>`);
 }
 
 ## Ways to give css to a component
@@ -38,9 +35,7 @@ const styleCard = {
 }
 const RestaurantCard = () =>{
     return(
-        <div className="res-card" style={styleCard}>
-            <h3>Meghna Foods</h3>
-        </div>
+        `<div className="res-card" style={styleCard}><h3>Meghna Foods</h3></div>`
     )
 }
 
@@ -102,31 +97,33 @@ const RestaurantCard = (props) =>{
 - The UI is driven by the config which is the JSON data from the backend.
 - The config means the JSON data.
 
+```json
 {
-statusCode: 0,
-data: {
-statusMessage: "done successfully",
-pageOffset: {
-nextOffset: "CJhlELQ4KIDQwPHy2OelazCnEzgD",
-widgetOffset: {
-NewListingView_category_bar_chicletranking_TwoRows: "",
-NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
-Restaurant_Group_WebView_SEO_PB_Theme: "",
-collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: "9",
-inlineFacetFilter: "",
-restaurantCountWidget: ""
+  "statusCode": 0,
+  "data": {
+    "statusMessage": "done successfully",
+    "pageOffset": {
+      "nextOffset": "CJhlELQ4KIDQwPHy2OelazCnEzgD",
+      "widgetOffset": {
+        "NewListingView_category_bar_chicletranking_TwoRows": "",
+        "NewListingView_category_bar_chicletranking_TwoRows_Rendition": "",
+        "Restaurant_Group_WebView_SEO_PB_Theme": "",
+        "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo": "9",
+        "inlineFacetFilter": "",
+        "restaurantCountWidget": ""
+      }
+    },
+    "cards": [],
+    "firstOffsetRequest": true,
+    "cacheExpiryTime": 240,
+    "nextFetch": 1
+  },
+  "tid": "f7bf6d4f-7316-4926-8371-16650cc70ba2",
+  "sid": "ktue50a6-805a-41a0-a1ef-2f4be0648df8",
+  "deviceId": "4afd8a8e-1cb4-15bb-65eb-d5317ddd58d3",
+  "csrfToken": "1ZKvnAV2wCP5-pjCLmGuAq_q_FK4scVMAjzFtJWQ"
 }
-},
-cards: [],
-firstOffsetRequest: true,
-cacheExpiryTime: 240,
-nextFetch: 1
-},
-tid: "f7bf6d4f-7316-4926-8371-16650cc70ba2",
-sid: "ktue50a6-805a-41a0-a1ef-2f4be0648df8",
-deviceId: "4afd8a8e-1cb4-15bb-65eb-d5317ddd58d3",
-csrfToken: "1ZKvnAV2wCP5-pjCLmGuAq_q_FK4scVMAjzFtJWQ"
-}
+```
 
 - Send the data which is required by the UI from the backend and consume it to build the UI on the front end.
 
@@ -136,16 +133,16 @@ csrfToken: "1ZKvnAV2wCP5-pjCLmGuAq_q_FK4scVMAjzFtJWQ"
 - Take the data as an object in the code like const data = {}.
 - Pass the data as a prop to the functional component <Component resData={data}/>.
 - Take the data into the function as props like
-   const Component => (resData){
-      const {resObj} = resData;    
+   const Component => (resData){ <br>
+      const {resObj} = resData; <br>
    }
 
 ## CDN to store images
 Swiggy uses the CDN to store the images. So, the image source is link+"id".
 
 ## To make our code look good
-We will use Optional Chaining.
-const { cloudinaryImageId, name, avgRating, cuisines, areaName, costForTwo } = resData?.info;
+- We will use Optional Chaining.
+- const { cloudinaryImageId, name, avgRating, cuisines, areaName, costForTwo } = resData?.info;
 
 ## How to loop over the components in React?
 We will loop over the components in React by using map or for-each loop, but we will be using map.
