@@ -73,7 +73,7 @@ const headingComponent = () => {
     return `<h1>This is a functional Component</h1>`;
 }
 
-const headingComponent = () => `<h1>This is a functional Component</h1>;
+const headingComponent = () => `<h1>This is a functional Component</h1>`;
 
 Both the above syntax are correct But use {} in the multiline components.
 
