@@ -107,7 +107,7 @@ Writing the Component inside the Component is called Component Composition.
 - We can write function also instead of the Arrow Function, but it is necessary to return it.
 const HeadingComponent = function() => {
     return (
-        ```<div id="container">
+        ```<div id="container"><br>
             <Title/>    
             <h1>This is a functional Component</h1>
         </div>```
