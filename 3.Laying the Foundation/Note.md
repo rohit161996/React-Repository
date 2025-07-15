@@ -1,20 +1,20 @@
 # Episode 3 Laying the foundation
 
-1. Creating a script to start our project in Dev Mode.
+## Creating a script to start our project in Dev Mode.
 "scripts" : {
     "start" : "parcel index.html",
 }
 
-## Command to run the script
+### Command to run the script
 - npm run start
 - npm start
 
-2. Creating a script to start our project in Production Mode.
+## Creating a script to start our project in Production Mode.
 "scripts" : {
     "build" : "parcel build index.html",
 }
 
-## Command to run the script
+### Command to run the script
 - npm run build
 - npm build
 
@@ -39,7 +39,7 @@ JSX is not HTML inside Java Script, JSX is an HTML like or XML like syntax.
 JSX makes it easier to develop the code.
 
 - This is not pure Java Script because it is not ES6. 
-const jsxHeading = <h1 id="heading">Namaste React using JSX 😍</h1>;
+"const jsxHeading = <h1 id="heading">Namaste React using JSX 😍</h1>;"
 
 - JS Engine understands ES6 or ECMAScript.
 - But it runs due to parser doing all the things.
