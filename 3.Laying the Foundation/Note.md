@@ -39,7 +39,7 @@ JSX is not HTML inside Java Script, JSX is an HTML like or XML like syntax.
 JSX makes it easier to develop the code.
 
 - This is not pure Java Script because it is not ES6. 
-"const jsxHeading = <h1 id="heading">Namaste React using JSX 😍</h1>;"
+`const jsxHeading = <h1 id="heading">Namaste React using JSX 😍</h1>;`
 
 - JS Engine understands ES6 or ECMAScript.
 - But it runs due to parser doing all the things.
