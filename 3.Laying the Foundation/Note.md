@@ -57,9 +57,7 @@ https://babeljs.io/
 - There is no 'single quotes'.
 - Attributes are written in the camelCase.
 - For multiline JSX we have to wrap it in the ();
-  e.g. const jsxHeading = (```<h1 id="heading">
-        Namaste React using JSX 😍
-        </h1>```);
+  e.g. const jsxHeading = (```<h1 id="heading">Namaste React using JSX 😍 </h1>```);
 
 
 ## Components in React
@@ -83,10 +81,7 @@ Both the above syntax are correct But use {} in the multiline components.
 - Writing return is optional.
 
 const headingComponent = () => {
-    return 
-    <div>
-        <h1>This is a functional Component</h1>;
-    </div>
+    return (`<div><h1>This is a functional Component</h1></div>`);
 }
 
 const ReactElement = ();
@@ -107,7 +102,7 @@ Writing the Component inside the Component is called Component Composition.
 - We can write function also instead of the Arrow Function, but it is necessary to return it.
 const HeadingComponent = function() => {
     return (
-        <pre> ```html <div id="container"> <Title/> <h1>This is a functional Component</h1> </div> ``` </pre>
+        `<div id="container"> <Title/> <h1>This is a functional Component</h1> </div> `
     );
 }
 
@@ -122,7 +117,7 @@ So, the {element} will not directly run the code it will sanitize the data. It p
 
 ## NOTE:
 - The functional component can also be written like:
-<Title/> or <Title></Title>
+`<Title/>` or `<Title></Title>`
 
 - We can also call a function inside a JSX.
 {Title()}
