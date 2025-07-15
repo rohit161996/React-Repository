@@ -57,9 +57,9 @@ https://babeljs.io/
 - There is no 'single quotes'.
 - Attributes are written in the camelCase.
 - For multiline JSX we have to wrap it in the ();
-  e.g. const jsxHeading = (<h1 id="heading">
-        Namaste React using JSX 😍
-        </h1>);
+  e.g. const jsxHeading = (`<h1 id="heading">`
+        Namaste React using JSX 😍`
+        `</h1>`);
 
 
 ## Components in React
@@ -73,7 +73,7 @@ There are two types of components in React:
   is a functional component.
 
 const headingComponent = () => {
-    return <h1>This is a functional Component</h1>;
+    return `<h1>This is a functional Component</h1>;`
 }
 
 const headingComponent = () => <h1>This is a functional Component</h1>;
