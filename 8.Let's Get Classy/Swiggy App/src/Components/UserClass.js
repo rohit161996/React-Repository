@@ -3,7 +3,7 @@ import React from "react";
 class UserClass extends React.Component {
     constructor(props) {
         super(props);
-        // Make the state varible to store the data from api call
+        // Make the state variable to store the data from api call
         this.state = {
             userInfo: {
                 login: "Dummy",
