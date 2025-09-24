@@ -1,16 +1,25 @@
+# Episode 7 - Finding the path
 ## When is the use effect called?
-- useEffect is a Hook having two arguments :-
+- useEffect is a Hook which has two arguments :-
   - 1. Callback function
   - 2. Dependency array
+
 - If the 2nd argument is not there the callback function is executed everytime the component renders i.e. RestaurantMenu renders.
+
 - If the second argument is present the useEffect is called when the second arguments state changes since it has statevariables
+
 - It is called after every rendering of the component in which it is defined.
 
 - If no dependency array => useEffect is called on every render of the component in which it is present.
+
 - If the dependency array = [],  the useEffect is called on initial render and just once.
+
 - If we have defined the dependency array like [], then useEffect is called only once.
+
 - The useEffect will be called when there is a change in dependency array.
+
 - If dependency array = [btnNameReact], Every time the btnNameReact changes the useEffect() hook is called.
+
 - If we have a non empty dependency array, then useEffect is called on every event of the change in the dependency array
 
 ## What are the best practises to use useState() hook?
@@ -35,23 +44,24 @@
 ## Routes :-
 - We will be using an npm javascript library to create routes.
 - https://reactrouter.com/home [Documentation]
-- Command to install react router :- 
-  -> npm i react-router-dom@6.22.3
-              or
-  -> npm install react-router-dom@6.22.3
+- Command to install react router :
+  - npm i react-router-dom@6.22.3 <br>
+  - npm install react-router-dom@6.22.3
 - It will add packages into package.json and package-lock.json
 
 ## Creating a About Us Page.
 0. The router will be created in App.js (root level component of the App).
   
-1. import the createBrowserRouter in the App.js because it will create the Routing Configuration for us, configuration 
-     means information that will define what will happen on a specific route.
-  -> import {createBrowserRouter} from "react-router-dom";
+1. import the createBrowserRouter in the App.js because it will create the Routing Configuration for us, configuration means information that will define what will happen on a specific route.
+```js
+import {createBrowserRouter} from "react-router-dom";
+```
 
 2. Create a configuration which is a list of Objects which contain the 
    1. Path where the url goes
    2. Component which is rendered with the path 
-- const appRouter = createBrowserRouter(
+```js
+const appRouter = createBrowserRouter(
   [{
         path : "/",
         <!-- Loading the Home Page -->
@@ -66,17 +76,22 @@
         element : <Contact/>
    }
   ])
+```
 
 3. RouterProvider component of the react-router-dom is imported and it will provide the configuration to the app.
 - Now RouterProvider passes the configuration built with the createBrowserRouter to render different Components on the page.
-- root.render(<RouterProvider router={appRouter} />)
+```js
+  root.render(<RouterProvider router={appRouter} />)
+```
 
 - Create browser router creates a configuration.
 
 - Earlier we were rendering the AppLayout directly.
-- root.render(<AppLayout />);
+```js
+  root.render(<AppLayout />);
+```
 
-4. There are several types of Routers like createHashRouter, createMemoryRouter, createStaticRouter available on
+1. There are several types of Routers like createHashRouter, createMemoryRouter, createStaticRouter available on
   https://reactrouter.com/home [Documentation]
 - But createBrowserRouter is preferred for the usage as per our usecase different usecase will have different router.
 
@@ -95,7 +110,10 @@
 - This page is created and handled by react-router-dom internally.
 
 ## To display the error page:
-- Add the errorElement to the createBrowserRouter which will display the Component Error  ({ errorElement : <Error/>});
+- Add the errorElement to the createBrowserRouter which will display the Component Error  
+```js
+  ({ errorElement : <Error/>});
+```
 - import Error in the App.js 
 - Create a component Error.
 
@@ -114,7 +132,8 @@
 ## How to create the Children Routes?
 - Create a list of Children Paths in the createBrowserRouter's parent element's subsection children.
 - It is a list of paths.
-- const appRouter = createBrowserRouter([
+```js
+  const appRouter = createBrowserRouter([
     {
         path: "";
         element: "";
@@ -126,40 +145,43 @@
         ]
     }
   ]);
+```
 
 ## How to place the children in the component to be replaced?
 - It is done with the help of Outlet Component provided by the react-router-dom.
-- <Outlet/>
+- `<Outlet/>`
 - Outlet is replaced by the parent component's children.
 
 ## What should be used to redirect to a page(render a component) in react?
-- The <a></a> anchor tag should not be used to redirect to a page in react, because it reloads the page.
-- The <Link/> component should be used to redirect as it does not loads the page.
+- The `<a></a>` anchor tag should not be used to redirect to a page in react, because it reloads the page.
+- The `<Link/>` component should be used to redirect as it does not loads the page.
 - The Link tag works just like an anchor tag but it does not loads the page.
-- <Link to="/contact">Contact Us</Link>.
-- Single Page Application - The pages are not reloading only the components are re-rendering.
+  - `<Link to="/contact">Contact Us</Link>`.
+- Single Page Application 
+  - The pages are not reloading only the components are re-rendering.
 
 ## There are two types of Routing:
-1. Client Side Routing
-   There is no Network call when we call a page, the client is re-rendering, because it already has the 
+1. **Client Side Routing**
+   - There is no Network call when we call a page, the client is re-rendering, because it already has the 
    component and it does not have to call the server for the page.
 
-2. Server Side Routing
-   There is a Network call when we call the page, the client is calling server for the page and the server 
+2. **Server Side Routing**
+   - There is a Network call when we call the page, the client is calling server for the page and the server 
    sends the page back to the client.
 
 ## Making a page for a restaurant.
 - We have a dynamic route for every restaurant we have.
 - Every restaurant will have its own page.
-0. Analyze the structure of the page
+0. **Analyze the structure of the page**
    - www.swiggy.com/restaurant/hotel_name like 
    - path: "/restaurants/:resId",
 
-1. Create the component of the Restaurant Menu <RestaurantMenu />
+1. **Create the component of the Restaurant Menu `<RestaurantMenu />`**
    - It is restaurant menu page.
    - This component will be used for every restaurant with the id attached to it in the routes.
 
-2. Make the configuration of it.
+2. **Make the configuration of it.**
+```js
     const appRouter = createBrowserRouter([
         {
             path: "/",
@@ -187,7 +209,7 @@
 
         },
     ])
-
+```
 :resId will be changed with the restaurant, and it will make the page dynamic according to the new restaurant.
 
 ## To take the data into the page 
@@ -207,27 +229,31 @@
 - Fix :- 
 - Remove the ternary operator from return of JSX and return the Shimmer UI before the getting the data in the variables.'
 - Changing the restaurant id will be changing the page.
+```js
   if (resInfo === null) return (<Shimmer />);
+```
 
 ## Data inconsistency in swiggy api
 - There is a lot of inconsistency in the swiggy api's.
 
 ## Making the page change on id change and the item clickable.
 - It is done with the help of useParams() to make the resId dynamic.
-- const {resId} = useParams();
+```js
+  const {resId} = useParams();
+```
+
 - Change the url and make it generic.
+```js
   const data = await fetch(constants.CORS_PLUGIN + constants.URL + resId + constants.REMAINING_URL);
   <Link
       to={"/restaurants/" + restaurant.info.id}
       key={restaurant.info.id}>
       <RestaurantCard
-          // When a parent tag is applied key should be in the parent
-          // key={restaurant.info.id}  // Use a unique identifier
+          /* When a parent tag is applied key should be in the parent */
+          /* key={restaurant.info.id} // Use a unique identifier
           resData={restaurant}
       />
   </Link>
-
+```
 ## NOTE:-
-- <Link to=""/> is a component provided by react-router-dom, but when we see it on the HTML page it gives <a href>. 
-- 
-
+- `<Link to=""/>` is a component provided by react-router-dom, but when we see it on the HTML page it gives `<a href>`. 
