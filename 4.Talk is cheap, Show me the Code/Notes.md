@@ -1,43 +1,56 @@
+# Talk is Cheap Show me the Code
+
 ## Components in Our App
-1. **Header**<br>
+1. **Header Component**<br>
    1.1. Logo <br>
    1.2. Nav Items<br><br>
 
-2. **Body**<br>
+2. **Body Component**<br>
    2.1. Search<br>
    2.2. Restaurant  Container<br>
         2.2.1. Restaurant Card<br><br>
 
-3. **Footer**<br>
+3. **Footer Component**<br>
    3.1. Copyright<br>
    3.2. Links<br>
    3.3. Address<br>
    3.4. Contact<br>
 
-Parcel does the HMR for Us -> gives the response very quickly. 
+Parcel does the Hot Module Replacement for Us -> gives the response very quickly. 
 
 ## Standard Component Format
-
+```js
 const AppLayout = () => {
-    return (`<div></div>`);
+    return (
+      <div>
+
+      </div>
+   );
 }
+```
 
 ## Ways to give css to a component
 1. In the index.css like the external css.
 
 2. In the inline JSX tag as a javascript object.
+```js
 <div className="res-card" style={{backgroundColor: "red"}}>
-
+```
 
 3. In the program by making a React Element.
+```js
 const styleCard = {
    backgroundColor: "red"
 }
+
 const RestaurantCard = () =>{
     return(
-        `<div className="res-card" style={styleCard}><h3>Meghna Foods</h3></div>`
+        <div className="res-card" style={styleCard}>
+            <h3>Meghna Foods</h3>
+         </div>
     )
 }
+```
 
 ## How can we create the dynamic Cards?
 By using the props.
@@ -47,36 +60,35 @@ By using the props.
 - These are just the attributes which are passed to the components.
 
 E.g.
+```js
 <RestaurantCard 
-resname = "McDonald's"
-cuisine = "American"
-/>
+   resname = "McDonald's"
+   cuisine = "American"/>
 
 const RestaurantCard = (props) =>{
    // Now props can be accessed here using the . operator
    {props.resname}
    {props.cuisine}
 }
-
+```
 - These all properties are wrapped inside the javascript object and these 
   are sent to the function arguments using the props keyword.
 
 - Use the props in the Functional Components like a javascript object.
 
 - Destructuring on the fly
-<RestaurantCard 
-resname = "McDonald's"
-cuisine = "American"
-/>
+```js
+<RestaurantCard resname = "McDonald's" cuisine = "American" />
 
 const RestaurantCard = ({resname, cuisine}) =>{
    // Now props can be accessed here using the . operator
    {resname}
    {cuisine}
 }
+```
 
 - To understand the things properly :-
-
+```js
 const RestaurantCard = (props) =>{
    const {resname, cuisine} = props;
 
@@ -84,12 +96,13 @@ const RestaurantCard = (props) =>{
    {resname}
    {cuisine}
 }
+```
 
 - How the data comes to us from the backend?
-0. It will come in the form of a JSON file.
-1. Install the plugin to see the data coming from the backend .
-2. Inspect Element -> Network Tab -> Fetch/XHR -> Reload -> Click links and find api's -> Open in New Tab
-3. Copy the data to the program.
+1. It will come in the form of a JSON file (Referring to the browser).
+2. Install the plugin to see the data coming from the backend.
+3. Inspect Element -> Network Tab -> Fetch/XHR -> Reload -> Click links and find api's -> Open in New Tab
+4. Copy the data to the program.
 
 
 ## Config Driven UI
@@ -130,35 +143,49 @@ const RestaurantCard = (props) =>{
 - UI is powered by the data.
 
 ## How to integrate data manually to the front end?
-- Take the data as an object in the code like const data = {}.
-- Pass the data as a prop to the functional component <Component resData={data}/>.
+- Take the data as an object in the code like 
+```js
+const data = {}.
+```
+
+- Pass the data as a prop to the functional component 
+```js
+<Component resData={data}/>.
+```
+
 - Take the data into the function as props like
+```js
    const Component => (resData){ <br>
       const {resObj} = resData; <br>
    }
+```
 
 ## CDN to store images
 Swiggy uses the CDN to store the images. So, the image source is link+"id".
 
 ## To make our code look good
 - We will use Optional Chaining.
-- const { cloudinaryImageId, name, avgRating, cuisines, areaName, costForTwo } = resData?.info;
-
+```js
+const { cloudinaryImageId, name, avgRating, cuisines, areaName, costForTwo } = resData?.info;
+```
 ## How to loop over the components in React?
-We will loop over the components in React by using map or for-each loop, but we will be using map.
+- We can loop over the components in React by using 
+  - Map 
+  - For-each loop
+- We will be using map, since it creates a shallow copy.
 
-## MAP, FILTER and REDUCE are very important.
+## MAP, FILTER and REDUCE are very important from Javascript.
 
 ## Importance of Key in the map while looping.
-- React will re render all the components when one component is added, because it will be confused where to insert the component.
-- In react version 19 it will throw an error.
+- React will re-render all the components when one component is added, because it will be confused where to insert the component.
+- In react version 19 it will throw an error, if the key is not added.
 
 ## Alternative to the key
 - We can also write the index instead of key, but the React's official website says do not use index for keys as the order of items may change.
 
-" Index as a key is an anti-pattern"
+- "Index as a key is an anti-pattern"
 
-## If we do not have a key by any means then we have no other option than to use the id.
-
-## [Not using keys] <<<<<<<<< [Index as a key] <<<<<<<<< [Unique Id] 
+## Note :
+- If we do not have a key by any means then we have no other option than to use the id.
+- [Not using keys] <<<<<<<<< [Index as a key] <<<<<<<<< [Unique Id as Key] 
 
