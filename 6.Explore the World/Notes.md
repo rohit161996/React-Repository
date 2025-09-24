@@ -1,3 +1,4 @@
+# Explore the World
 ## Monolith vs Microservice Architecture
 - In the Monolith  Architecture the Entire Project is compiled for a single change.
 - Entire team works on a single repository.
@@ -15,7 +16,7 @@
 These services run on different port numbers and domain name is different for these port numbers.
 
 ## How react application will make a call to Backend API?
-- There are two approaches to Render the UI on the Web Page
+- There are two approaches to Render the UI on the Web Page :
 1. Load Page -> Call API -> Render UI
 2. Load Page -> Render UI -> Call API -> Render UI
 
@@ -24,7 +25,7 @@ These services run on different port numbers and domain name is different for th
 ## useEffect Hook?
 - useEffect is a special React hook used to perform side effects like API calls, logging, subscriptions, etc.
 
-- It is just like a normal function.
+- It is just like a normal JavaScript function.
 
 - It takes two arguments:
   - A callback function (the side effect)
@@ -32,18 +33,19 @@ These services run on different port numbers and domain name is different for th
  
 - This useEffect() is called when the UI Component is rendered, as soon as the UI is rendered it will call the callback function.
 
-E.g.
+```js
     useEffect(()=>{
         console.log("useEffect is called");
     },[]);
 
     console.log("Body rendered");
-
+```
 - In the above example the Body Rendered will be printed first.
 - useEffect() is used when we have to implement the 2nd approach to call the Backend API, using the fetch() with promises.
 
 - Install the Plugin to see the data in the console log otherwise it will throw error.
 
+```js
 const fetchData = async () => {
     const data = await fetch(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -55,19 +57,21 @@ const fetchData = async () => {
 useEffect(() => {
     fetchData();
 }, []);
+```
 
 ## Shimmer UI
 - Shimmer UI is used by various big web designers to render UI without data till it gets the data from the API. 
 - Shimmer Component is Component created which gives user impression that the page is being loaded.
 
-
-// Conditional Rendering
+```js
+/* Conditional Rendering */
 if (listOfRestaurants === null) {
-    // return <h1>Loading...</h1>;
+    /* return <h1>Loading...</h1>; */
     return (
         <Shimmer />
     );
 }
+```
 
 ## Why we use State Variable or Why we do not use normal Javascript variable?
 - Normal Javascript variable does not have the capability to Re-render the React Component, so 
@@ -86,14 +90,17 @@ if (listOfRestaurants === null) {
 
 ## How to build the search functionality on the basis of input box?
 - Create a button.
+```js
   <button onClick={}>
+```
 
 - Bind the value of the input box with the state variable.
   const [searchText, setSearchText] = useState("");
 
 - Create the input box.
+```js
   <input type="text" className="search-box" value={searchText}>
-
+```
 This will not work without the onChange() as the value of the input box is bind to the state variable, and it will not let it change.
 
 ## React Reconciliation?
@@ -104,11 +111,14 @@ This will not work without the onChange() as the value of the input box is bind 
 ## React Fibre?
 - React Fiber is a complete reimplementation of React's core reconciliation algorithm. It aims to improve performance, especially in
   complex applications, by enabling incremental rendering. 
-
+```js
 onChange={(e) => {
     // whenever the input text changes update the state variable
     setSearchText(e.target.value);
 }}
+```
+
+```js
 
 onClick={() => {
     // Filter the restaurant cards and update the UI
@@ -124,17 +134,20 @@ onClick={() => {
     
     setListOfRestaurants(filteredRestaurant);
 }}
-
+```
 ## Problem with the search:
 - This need the entire exact string
+```js
   (res) => res.info.name === searchText
+```
 
 - This will work fine with every case
+```js
   (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
+```
 
 - Now the search space is lost if we have searched for some restaurant.
   To solve this create a new state variable to update and search on the previous state variable.
-
 
 
 
