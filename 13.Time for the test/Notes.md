@@ -1,29 +1,29 @@
 # Testing from a Developer's Point of View:-
 
 ## Types of testing:-
-1. Manual Testing.
+1. **Manual Testing**.
    - We are manually testing the Components and the Functionality.
    - Single Line can destroy many components.
   
 2. Code to Test the Application.
 
 ## What are the different types of Application which can be done in the React Application?
-1. Unit Testing
-   - Testing the <Component/> in the Isolation from the App.
+1. **Unit Testing**
+   - Testing the `<Component/>` in the Isolation from the App.
 
-2. Integration Testing
+2. **Integration Testing**
    - Testing the Integration of the Components.
    - For e.g. The Restaurant Card Changes on the writing something in the Input Box.
    - Code will be written to check the flow of the Project.
 
-3. End to End Testing
+3. **End to End Testing**
    - Testing the Application from when the User Lands on the Website to when the user leaves the website.
-   - Tools are used such as Celinium, Citrius etc. 
+   - Tools are used such as Selinium, Citrius etc. 
 
-## We will be concerned about the first two type of Testing.
+## We will be concerned about the first two type of Testing for Development.
 
 ## Libraries used to test the React Application:-
-1. React Testing Library 
+1. **React Testing Library**
    It builds on top of DOM Testing Library by adding APIs for working with React components.
    https://testing-library.com/docs/react-testing-library/intro/#installation
 
@@ -37,17 +37,23 @@
 - Jest uses babel.
 - We need React Testing Library and Jest in our application.
 
-npm install -D @testing-library/react
-npm install -D jest
+```cmd
+    npm install -D @testing-library/react
+    npm install -D jest
+```
 
 ## Install the dependencies which are required to use Babel :-
-npm install --save-dev babel-jest @babel/core @babel/preset-env
+```cmd
+    npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
 
 ## Create a file called :-
 "babel.config.ts" with content
+```js
 module.exports = {
   presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
 };
+```
 
 ## As mentioned in :-
 https://jestjs.io/docs/getting-started
@@ -59,8 +65,8 @@ This babel.config.ts can modify the configurations for Parcel
 https://parceljs.org/languages/javascript/#babel
 -> Usage with other tools
 
-- Configure the Parcel Config file to disable default babel transpilation
-.parcelrc file with the following content
+- Configure the Parcel Config file to disable default babel transpilation .parcelrc file with the following content :
+```js
 {
   "extends": "@parcel/config-default",
   "transformers": {
@@ -70,6 +76,7 @@ https://parceljs.org/languages/javascript/#babel
     ]
   }
 }
+```
 
 ## How to run the Test Cases?
 - In the package.json we have the test which uses the jest.
@@ -89,7 +96,9 @@ npm run test
  Now, we have synced the React Testing Library, Jest, Parcel and Babel.
 
  ## Now we have to make the Jest Configuration.
-npx jest --init
+```cmd
+  npx jest --init
+```
 
 1. Typescript - N
 2. Environment - jsdom
@@ -110,23 +119,30 @@ It will create a big jest.config.ts file.
 
 ## Now we have to install the jsdom library 
 - We have to seperately install the jest-environment-jsdom
-  
+
+```cmd
 npm install --save-dev jest-environment-jsdom
-
+```
                 OR
-
+```cmd
 npm install -D jest-environment-jsdom
-
+```
 
 # FINAL STEPS FOR TESTING ENVIRONMENT SETUP:-
 1. Install React Testing Library
+```cmd
    npm install -D @testing-library/react
+```
 
 2. Intalling jest
+```cmd
    npm install -D jest
+```
 
 3. Installed Babel dependencies
+```cmd
    npm install --save-dev babel-jest @babel/core @babel/preset-env
+```
 
 4. Configure Babel
    "babel.config.ts" with content
@@ -153,22 +169,32 @@ npm install -D jest-environment-jsdom
     }
     ```
 6. Jest
+```cmd
    npx jest --init
+```
 
 7. Intall jsdom library
+```cmd
    npm install -D jest-environment-jsdom
+```
 
 8. Install the ts-node
+```cmd
    npm install --save-dev ts-node
+```
 
-9. Install @babel/preset-react and add it to the preset configuration.
+9.  Install @babel/preset-react and add it to the preset configuration.
+```cmd
    npm install @babel/preset-react
+```
 
 - Babel is a transpiler which converts one code to another.
 - preset helps the JSX to be converted to the normal HTML Code.
 
 10. Install @testing-library/jest-dom
+```cmd
     npm install --save-dev @testing-library/jest-dom
+```
 
 ## We can do create-react-app and it automatically gives testing library
 
@@ -178,9 +204,11 @@ npm install -D jest-environment-jsdom
 
 ## Basic Testing
 - Create a sum.js file
-- npm run test
+```cmd
+npm run test
+```
 
-- Logs
+- Logs<br>
   testMatch: **/__tests__/**/*.?([mc])[jt]s?(x), **/?(*.)+(spec|test).?([mc])[jt]s?(x) - 0 matches
   testPathIgnorePatterns: \\node_modules\\ - 28 matches
 
@@ -249,10 +277,12 @@ npm install -D jest-environment-jsdom
 ## First Class Basics:-
 - JSX is the React Element at the end of the day.
 - React element is an object at the end of the day.
-- screen.getByRole("button"); return the React Element, React Fibre Node, JSX, Virtual DOM Object.
+- `screen.getByRole("button");` return the React Element, React Fibre Node, JSX, Virtual DOM Object.
 
 ## Querying :-
-const inputs = screen.getAllByRole("textbox");
+```js
+  const inputs = screen.getAllByRole("textbox");
+```
 
 - Now, we can club the similar test cases:- 
 - Using the describe()
@@ -266,24 +296,24 @@ const inputs = screen.getAllByRole("textbox");
 - "it" is an alias of the "test" function.
 
 ## Do not push the coverage/ directory to the git:-
-- Add it to the gitignore.
+- Add it to the `.gitignore`.
 
 # 2. Header Component Testing :-
-## Now we will test the Header Component:-
-- That the <Header/> Component is loaded or not.
-- Create the Header.test.js.
+- Now we will test the Header Component:-
+- That the `<Header/>` Component is loaded or not.
+- Create the `Header.test.js`.
 - The problem with writting the Test Case for the Header Component is that it is subscribed to the 
   Redux Store, and the Jest Does not understand the Redux's Hooks like useSelector() etc.
 - So, we have to pass the Redux Store to the Header Component in its test cases i.e. Header.test.js
 
-- Now, the <Link/> is also not the part of the react, it is a part of the react-browser-router.
-- So, for the test application of <Header/> Component, we will have to write the rendering of the <Header/> Component in the 
+- Now, the `<Link/>` is also not the part of the react, it is a part of the react-browser-router.
+- So, for the test application of `<Header/>` Component, we will have to write the rendering of the `<Header/>` Component in the 
 ```html
-<BrowserRouter>
-    <Provider>
-        <Header/>
-    </Provider>
-</BrowserRouter>
+    <BrowserRouter>
+        <Provider>
+            <Header/>
+        </Provider>
+    </BrowserRouter>
 ```
 
 ### Test 1
@@ -320,11 +350,10 @@ it('Should render Header Component with a Cart items 0', () => {
 ```
 
 # 3.Restaurant Card Testing :-
-## Now we will test the RestaurantCard Component:-
-### To test the components with the props:-
-- We will have to create the mock data and pass it to the test case.
+- Now we will test the RestaurantCard Component:-
+- To test the components with the props. We will have to create the mock data and pass it to the test case.
   
-- Go to the <RestaurantCard/> -> Print the data using the console.log();
+- Go to the `<RestaurantCard/>` -> Print the data using the console.log();
   ```js
   const RestaurantCard = (props) => {
     const { resData } = props;
@@ -332,7 +361,7 @@ it('Should render Header Component with a Cart items 0', () => {
   }
   ```
 
-- Copy the object from the console paste it in the "mock/resCardMock.json" file.
+- Copy the object from the console paste it in the `mock/resCardMock.json` file.
 - Import the data in the RestaurantCard.test.js
 - import MOCK_DATA from "../mocks/mockResListData.json";
 - Write the test case.
@@ -399,15 +428,19 @@ it("should render RestaurantCard component with Open label", () => {
 
 ### Problem 1 :- fetch() not there with the Jest
 - We have the API calls in the Body Component so we have design the test case for API's fetching as well.
-- Search.test.js is the test case for <Body/> Component.
-- We will get the error rendering the <Body/> Component, because we are trying to fetch the data in the <Body/>, Jest Does not have all the superpowers of the browser, it 
+- Search.test.js is the test case for `<Body/>` Component.
+- We will get the error rendering the `<Body/>` Component, because we are trying to fetch the data in the `<Body/>`, Jest Does not have all the superpowers of the browser, it 
   has only some features of the browser.
 - fetch() is the superpower of the browser not the Javascript.
 - We will have to write a mock fetch() function for the Test Case.
 
 ### Working of the fetch():-
-- The fetch function gets the data from the API's and it returns a promise i.e. **const data = fetch(API's)**.
-- Then we convert the data into the json format **data.json()** and it again return a promise.
+- The fetch function gets the data from the API's and it returns a promise i.e. 
+```js
+const data = fetch(API's);
+```
+
+- Then we convert the data into the json format `data.json()` and it again return a promise.
 ```js
 /* 
  *   1. Writing our own fetch function (mocking the fetch function)
@@ -429,9 +462,9 @@ global.fetch = jest.fn(() => {
 });
 ```
 - We cannot make an actual network call, only the browser can do that.
-- We can execute the **test cases locally** using the **@testing-library/jest-dom**
+- We can execute the `test cases locally` using the `@testing-library/jest-dom`
 - We will copy the data which comes from the API and paste it in the mockResListData.json
-- We will pass the mockResListData.json data to the Search.test.js from the **Promise.resolve(MOCK_DATA)**
+- We will pass the `mockResListData.json` data to the Search.test.js from the `Promise.resolve(MOCK_DATA)`
 - We can run the test cases solely without browser, without internet, with jsDOM solely.
 
 ### Problem 2 :- Props not working - pass the mock data
@@ -450,20 +483,22 @@ global.fetch = jest.fn(() => {
   code, we can also run the test cases continously.
 - Add the watch-test object in the package.json with the command "jest --watch".
 
-- The <RestaurantCard/> Component has props, till now <Header/> and <Contact/> did'nt had the props.
+- The `<RestaurantCard/>` Component has props, till now `<Header/>` and `<Contact/>` did'nt had the props.
 - Now we will see when props are passed inside the component, how to do the unit testing of it.
 
 ### Problem 4 :- State Update in the Component
-- Whenever we are testing the <Component/> in which we have useState() or fetch() function we need to wrap that 
-  <Component/> in the act(), act function comes from the react-dom/test-utils.
+- Whenever we are testing the `<Component/>` in which we have useState() or fetch() function we need to wrap that 
+  `<Component/>` in the act(), act function comes from the react-dom/test-utils.
 
 - We have to await the act(), since it returns a promise, and it takes an argument of async callback function.
 
 - act() takes the await then it render the Component.
+```js
   await act(async () => render(<Body/>));
+```
 
 ### Problem 5 :- Link Component in Body Function
-- Since the <Body/> Component has a <Link></Link> tag we have to enclose the <Body/> Component in the <BrowserRouter></BrowserRouter>
+- Since the `<Body/>` Component has a `<Link></Link>` tag we have to enclose the `<Body/>` Component in the `<BrowserRouter></BrowserRouter>`
   ```html
   <BrowserRouter>
     <Body/>
