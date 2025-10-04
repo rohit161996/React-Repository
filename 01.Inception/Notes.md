@@ -77,7 +77,8 @@
 
     <!-- There are 2 types of Developer 
          1. Building the React Library
-         2. Building the React Applications. -->
+         2. Building the React Applications. 
+    -->
 
     <div id="root"></div>
     <script>
@@ -101,8 +102,9 @@
 ### In App.js
 
 ```js
-// React code creating element using React Library
-// {} is the place where we give attributes to the tags
+/* React code creating element using React Library
+ * {} is the place where we give attributes to the tags
+ */
 const heading = React.createElement(
     "h1", 
     {   id : "heading",     // Props -> attributes
